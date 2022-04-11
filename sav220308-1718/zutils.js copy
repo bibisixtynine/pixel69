@@ -1,0 +1,49 @@
+export { now, log, iOS, isInstalledAsPWA } 
+
+////////////////////////////////////////////////////////
+//
+// ZUTILs
+//
+
+let seasonTimeCorrection = +1
+
+function isInstalledAsPWA() {
+  return (window.matchMedia('(display-mode: standalone)').matches) 
+}
+
+function iOS() {
+  return (
+    [
+      "iPad Simulator",
+      "iPhone Simulator",
+      "iPod Simulator",
+      "iPad",
+      "iPhone",
+      "iPod",
+    ].includes(navigator.platform) ||
+    // iPad on iOS 13 detection
+    (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+  );
+}
+
+function now() {
+  let date = new Date();
+  return (
+    ("0" + date.getDate()).slice(-2) +
+    "/" +
+    ("0" + (date.getMonth()+1)).slice(-2) + //BUG? Months start at 0
+    " " +
+    ("0" + (date.getHours()+seasonTimeCorrection)).slice(-2) +
+    ":" +
+    ("0" + date.getMinutes()).slice(-2) +
+    ":" +
+    ("0" + date.getSeconds()).slice(-2) +
+    "." +
+    ("000" + date.getMilliseconds()).slice(-3)
+  );
+}
+
+
+function log(string) {
+  console.log(now() + ' -> ' + string)
+}
