@@ -1,0 +1,66 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  
+  /*-webkit-font-smoothing: subpixel-antialiased;*/
+  /*-webkit-text-stroke: 0.1px;*/
+  user-select: none;
+  touch-action: none;
+}
+
+body {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background: rgb(0, 0, 0);
+  /* hack to improve thin font render on ipad...
+    -webkit-perspective: 0px !important; 
+  -webkit-backface-visibility: visible !important;
+  */
+  
+}
+
+.rainbow-pixel-canvas {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(0, 0, 0);
+}
+
+.font {
+  font-weight: 100;
+  font-family: system-ui;
+}
+
+.outer-container {
+  position: absolute;
+  translate: translation(-50%, -50%);
+  left: 0.0px;
+  top: 0.0px;
+  display: table;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+  
+}
+
+.inner-container {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  display: inline-block;
+  margin: 5px;
+  padding: 0px;
+  border-radius: 8px;
+  pointer-events: auto;
+}
